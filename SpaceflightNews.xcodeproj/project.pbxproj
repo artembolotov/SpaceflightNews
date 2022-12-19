@@ -11,6 +11,13 @@
 		ABC2B6A7294ED5B80074FF82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2B6A6294ED5B80074FF82 /* ContentView.swift */; };
 		ABC2B6A9294ED5BD0074FF82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6A8294ED5BD0074FF82 /* Assets.xcassets */; };
 		ABC2B6AC294ED5BD0074FF82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6AB294ED5BD0074FF82 /* Preview Assets.xcassets */; };
+		ABC2B6B3294ED6050074FF82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6B2294ED6050074FF82 /* README.md */; };
+		ABC2B6B5294ED65F0074FF82 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6B4294ED65F0074FF82 /* .gitignore */; };
+		ABC2B6B7294ED7D40074FF82 /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6B6294ED7D40074FF82 /* openapi.yaml */; };
+		ABC2B6BD294ED8D90074FF82 /* generate.sh in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6BC294ED8D90074FF82 /* generate.sh */; };
+		ABC2B6C0294ED9A80074FF82 /* NewsNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = ABC2B6BF294ED9A80074FF82 /* NewsNetwork */; };
+		ABC2B6C2295037160074FF82 /* openapi.json in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6C1295037160074FF82 /* openapi.json */; };
+		ABC2B6C429503BFB0074FF82 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2B6C329503BFB0074FF82 /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +26,13 @@
 		ABC2B6A6294ED5B80074FF82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ABC2B6A8294ED5BD0074FF82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABC2B6AB294ED5BD0074FF82 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABC2B6B2294ED6050074FF82 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ABC2B6B4294ED65F0074FF82 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		ABC2B6B6294ED7D40074FF82 /* openapi.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
+		ABC2B6BC294ED8D90074FF82 /* generate.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate.sh; sourceTree = "<group>"; };
+		ABC2B6BE294ED9350074FF82 /* NewsNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NewsNetwork; path = Modules/NewsNetwork; sourceTree = "<group>"; };
+		ABC2B6C1295037160074FF82 /* openapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = openapi.json; sourceTree = "<group>"; };
+		ABC2B6C329503BFB0074FF82 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC2B6C0294ED9A80074FF82 /* NewsNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,7 +51,14 @@
 			isa = PBXGroup;
 			children = (
 				ABC2B6A3294ED5B80074FF82 /* SpaceflightNews */,
+				ABC2B6BE294ED9350074FF82 /* NewsNetwork */,
+				ABC2B6BC294ED8D90074FF82 /* generate.sh */,
+				ABC2B6B6294ED7D40074FF82 /* openapi.yaml */,
+				ABC2B6C1295037160074FF82 /* openapi.json */,
+				ABC2B6B2294ED6050074FF82 /* README.md */,
+				ABC2B6B4294ED65F0074FF82 /* .gitignore */,
 				ABC2B6A2294ED5B80074FF82 /* Products */,
+				ABC2B6B9294ED87F0074FF82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +77,7 @@
 				ABC2B6A6294ED5B80074FF82 /* ContentView.swift */,
 				ABC2B6A8294ED5BD0074FF82 /* Assets.xcassets */,
 				ABC2B6AA294ED5BD0074FF82 /* Preview Content */,
+				ABC2B6C329503BFB0074FF82 /* ModelData.swift */,
 			);
 			path = SpaceflightNews;
 			sourceTree = "<group>";
@@ -65,6 +88,13 @@
 				ABC2B6AB294ED5BD0074FF82 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABC2B6B9294ED87F0074FF82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +113,9 @@
 			dependencies = (
 			);
 			name = SpaceflightNews;
+			packageProductDependencies = (
+				ABC2B6BF294ED9A80074FF82 /* NewsNetwork */,
+			);
 			productName = SpaceflightNews;
 			productReference = ABC2B6A1294ED5B80074FF82 /* SpaceflightNews.app */;
 			productType = "com.apple.product-type.application";
@@ -125,8 +158,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC2B6C2295037160074FF82 /* openapi.json in Resources */,
+				ABC2B6B5294ED65F0074FF82 /* .gitignore in Resources */,
+				ABC2B6B3294ED6050074FF82 /* README.md in Resources */,
+				ABC2B6B7294ED7D40074FF82 /* openapi.yaml in Resources */,
 				ABC2B6AC294ED5BD0074FF82 /* Preview Assets.xcassets in Resources */,
 				ABC2B6A9294ED5BD0074FF82 /* Assets.xcassets in Resources */,
+				ABC2B6BD294ED8D90074FF82 /* generate.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +177,7 @@
 			files = (
 				ABC2B6A7294ED5B80074FF82 /* ContentView.swift in Sources */,
 				ABC2B6A5294ED5B80074FF82 /* SpaceflightNewsApp.swift in Sources */,
+				ABC2B6C429503BFB0074FF82 /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +314,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +344,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +380,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABC2B6BF294ED9A80074FF82 /* NewsNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NewsNetwork;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ABC2B699294ED5B80074FF82 /* Project object */;
 }

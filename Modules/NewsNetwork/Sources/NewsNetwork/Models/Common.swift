@@ -15,7 +15,7 @@ public enum NewsSite: Int {
     case cnbs = 28
 }
 
-extension NewsSite {
+public extension NewsSite {
     var name: String {
         switch self {
         case .nasaspaceflight: return "NASASpaceflight"
@@ -25,5 +25,20 @@ extension NewsSite {
         case .arstechnica: return "Arstechnica"
         case .cnbs: return "CNBC"
         }
+    }
+}
+
+let prettyDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .long
+    return formatter
+}()
+
+public extension Article {
+    var publishedAtPrettyDate: String? {
+        guard let published = self.publishedAt,
+              let date = OpenISO8601DateFormatter().date(from: published) else { return nil }
+                
+        return prettyDateFormatter.string(from: date)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB29C4E82950C0B4004CAF15 /* ArticleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29C4E72950C0B4004CAF15 /* ArticleDetail.swift */; };
+		AB29C4EA29517CE3004CAF15 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB29C4E929517CE3004CAF15 /* ImageLoader.swift */; };
 		ABC2B6A5294ED5B80074FF82 /* SpaceflightNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2B6A4294ED5B80074FF82 /* SpaceflightNewsApp.swift */; };
 		ABC2B6A7294ED5B80074FF82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2B6A6294ED5B80074FF82 /* ContentView.swift */; };
 		ABC2B6A9294ED5BD0074FF82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6A8294ED5BD0074FF82 /* Assets.xcassets */; };
@@ -18,9 +20,12 @@
 		ABC2B6C0294ED9A80074FF82 /* NewsNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = ABC2B6BF294ED9A80074FF82 /* NewsNetwork */; };
 		ABC2B6C2295037160074FF82 /* openapi.json in Resources */ = {isa = PBXBuildFile; fileRef = ABC2B6C1295037160074FF82 /* openapi.json */; };
 		ABC2B6C429503BFB0074FF82 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2B6C329503BFB0074FF82 /* ModelData.swift */; };
+		ABC2B6C8295095AF0074FF82 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC2B6C7295095AF0074FF82 /* ArticleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB29C4E72950C0B4004CAF15 /* ArticleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetail.swift; sourceTree = "<group>"; };
+		AB29C4E929517CE3004CAF15 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		ABC2B6A1294ED5B80074FF82 /* SpaceflightNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceflightNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABC2B6A4294ED5B80074FF82 /* SpaceflightNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceflightNewsApp.swift; sourceTree = "<group>"; };
 		ABC2B6A6294ED5B80074FF82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +38,7 @@
 		ABC2B6BE294ED9350074FF82 /* NewsNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NewsNetwork; path = Modules/NewsNetwork; sourceTree = "<group>"; };
 		ABC2B6C1295037160074FF82 /* openapi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = openapi.json; sourceTree = "<group>"; };
 		ABC2B6C329503BFB0074FF82 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		ABC2B6C7295095AF0074FF82 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +81,12 @@
 			children = (
 				ABC2B6A4294ED5B80074FF82 /* SpaceflightNewsApp.swift */,
 				ABC2B6A6294ED5B80074FF82 /* ContentView.swift */,
+				ABC2B6C7295095AF0074FF82 /* ArticleCell.swift */,
+				AB29C4E72950C0B4004CAF15 /* ArticleDetail.swift */,
 				ABC2B6A8294ED5BD0074FF82 /* Assets.xcassets */,
 				ABC2B6AA294ED5BD0074FF82 /* Preview Content */,
 				ABC2B6C329503BFB0074FF82 /* ModelData.swift */,
+				AB29C4E929517CE3004CAF15 /* ImageLoader.swift */,
 			);
 			path = SpaceflightNews;
 			sourceTree = "<group>";
@@ -175,8 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC2B6C8295095AF0074FF82 /* ArticleCell.swift in Sources */,
 				ABC2B6A7294ED5B80074FF82 /* ContentView.swift in Sources */,
+				AB29C4EA29517CE3004CAF15 /* ImageLoader.swift in Sources */,
 				ABC2B6A5294ED5B80074FF82 /* SpaceflightNewsApp.swift in Sources */,
+				AB29C4E82950C0B4004CAF15 /* ArticleDetail.swift in Sources */,
 				ABC2B6C429503BFB0074FF82 /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

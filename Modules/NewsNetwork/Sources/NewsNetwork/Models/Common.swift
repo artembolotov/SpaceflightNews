@@ -12,7 +12,7 @@ public enum NewsSite: Int {
     case spaceNews = 16
     case nasa = 19
     case arstechnica = 23
-    case cnbs = 28
+    case cnbс = 28
 }
 
 public extension NewsSite {
@@ -23,7 +23,7 @@ public extension NewsSite {
         case .spaceNews: return "SpaceNews"
         case .nasa: return "NASA"
         case .arstechnica: return "Arstechnica"
-        case .cnbs: return "CNBC"
+        case .cnbс: return "CNBC"
         }
     }
 }

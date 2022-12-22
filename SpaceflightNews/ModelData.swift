@@ -11,29 +11,55 @@ import NewsNetwork
 
 final class ModelData: ObservableObject {
     
-    private let fetchLimit = 50
+    private static let fetchLimit = 50
+    
     private var fetchOffsets = [NewsSite: Int]()
+    private var canFetchMore = [NewsSite: Bool]()
+    private(set) var lastIds = [NewsSite: [Int]]()
+    
+    func getLastIds(forSource source: NewsSite) -> [Int] {
+        return lastIds[source] ?? []
+    }
     
     @Published var articles = [NewsSite: [Article]]()
     @Published var source = NewsSite.spaceNews {
         didSet {
             if (articles[source] ?? []).isEmpty {
-                fetchNews(sourse: source)
+                fetchNews()
             }
         }
     }
+    @Published private(set) var isFetching = [NewsSite: Bool]()
     
     init() {
-        fetchNews(sourse: source)
+        fetchNews()
     }
     
-    private func fetchNews(sourse: NewsSite) {
-        NewsNetwork.ArticleAPI.articlesGet(limit: fetchLimit, newsSite: sourse) { data, error in
+    func fetchNews() {
+        guard !(isFetching[source] ?? false) && (canFetchMore[source] ?? true) else { return }
+        
+        let source = self.source
+        isFetching[source] = true
+        let offset = fetchOffsets[source] ?? 0
+        
+        NewsNetwork.ArticleAPI.articlesGet(limit: ModelData.fetchLimit, newsSite: source, start: offset) { data, error in
+            self.isFetching[source] = false
+            
             if let error = error {
                 debugPrint(error)
             }
+            
             if let data = data {
-                self.articles[sourse] = data
+                let count = data.count
+                
+                self.canFetchMore[source] = count == ModelData.fetchLimit
+                self.fetchOffsets[source] = (self.fetchOffsets[source] ?? 0) + count
+ 
+                if self.articles[source]?.append(contentsOf: data) == nil {
+                    self.articles[source] = data
+                }
+                
+                self.lastIds[source] = data.suffix(10).map { $0.id }
             }
         }
     }

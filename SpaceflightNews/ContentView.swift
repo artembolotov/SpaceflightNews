@@ -11,7 +11,7 @@ import NewsNetwork
 struct ContentView: View {
     
     @EnvironmentObject var modelData: ModelData
-    private let sources = [NewsSite.spaceNews, .arstechnica, .cnbs, .nasa]
+    private let sources = [NewsSite.spaceNews, .arstechnica, .cnbс, .nasa]
     
     var body: some View {
         NavigationView {
@@ -24,15 +24,33 @@ struct ContentView: View {
                 .pickerStyle(.segmented)
                 .padding([.leading, .trailing])
                 List {
-                    ForEach(modelData.articles[modelData.source] ?? [], id: \.id) { article in
+                    let source = modelData.source
+                    
+                    ForEach(modelData.articles[source] ?? []) { article in
                         NavigationLink {
                             ArticleDetail(article: article)
                         } label: {
                             ArticleCell(article: article)
                         }
+                        .onAppear {
+                            let lastIds = modelData.getLastIds(forSource: source)
+                            if lastIds.contains(article.id) {
+                                modelData.fetchNews()
+                            }
+                        }
+                    }
+                    
+                    if modelData.isFetching[source] ?? false {
+                        HStack {
+                            Spacer()
+                            Text("Loading...")
+                            ProgressView()
+                            Spacer()
+                        }
+                    } else {
+                        EmptyView()
                     }
                 }
-                .listStyle(.plain)
             }
             .navigationTitle("Spaceflight News")
             .navigationBarTitleDisplayMode(.inline)

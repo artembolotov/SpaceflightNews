@@ -8,12 +8,13 @@
 import SwiftUI
 import NewsNetwork
 
-struct ArticleDetail: View {
+struct ArticleScreen: View {
+    @EnvironmentObject private var nav: NavigationViewModel
+    
     var article: Article
 
     var body: some View {
         NavigationView {
-            
             ScrollView {
                 VStack(alignment: .leading) {
                     Text(article.title ?? "")
@@ -34,14 +35,32 @@ struct ArticleDetail: View {
                     Spacer()
                 }
                 .padding()
-                .navigationTitle("")
+            }
+            .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            nav.pop()
+                        } label: {
+                            Image(systemName: "arrow.uturn.backward.circle")
+                        }
+                    }
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        nav.push(newView: WebViewScreen(url: article.url))
+                    }
+                    label: {
+                        Text("Read on website")
+                    }
+                    .disabled(article.url == nil)
+                }
             }
         }
+        
     }
 }
 
 struct ArticleDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleDetail(article: ModelData.testArticle)
+        ArticleScreen(article: ModelData.testArticle)
     }
 }

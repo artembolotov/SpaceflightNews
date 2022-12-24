@@ -14,8 +14,10 @@ struct SpaceflightNewsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(modelData)
+            NavigationViewController(transition: .custom(.move(edge: .top).combined(with: .scale), .scale)) {
+                NewsScreen()
+            }
+            .environmentObject(modelData)
         }
     }
 }

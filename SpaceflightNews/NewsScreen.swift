@@ -1,16 +1,18 @@
 //
-//  ContentView.swift
+//  NewsScreen.swift
 //  SpaceflightNews
 //
-//  Created by artembolotov on 18.12.2022.
+//  Created by artembolotov on 24.12.2022.
 //
 
 import SwiftUI
 import NewsNetwork
 
-struct ContentView: View {
+struct NewsScreen: View {
     
     @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject private var nav: NavigationViewModel
+    
     private let sources = [NewsSite.spaceNews, .arstechnica, .cnbс, .nasa]
     
     var body: some View {
@@ -25,15 +27,15 @@ struct ContentView: View {
                 .padding([.leading, .trailing])
                 List {
                     let source = modelData.source
+                    let lastIds = modelData.getLastIds(forSource: source)
                     
                     ForEach(modelData.articles[source] ?? []) { article in
-                        NavigationLink {
-                            ArticleDetail(article: article)
+                        Button {
+                            nav.push(newView: ArticleScreen(article: article))
                         } label: {
                             ArticleCell(article: article)
                         }
                         .onAppear {
-                            let lastIds = modelData.getLastIds(forSource: source)
                             if lastIds.contains(article.id) {
                                 modelData.fetchNews()
                             }
@@ -58,9 +60,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct NewsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(ModelData())
+        NewsScreen()
     }
 }
